@@ -1,0 +1,11 @@
+- In order to win the game [Benefit]
+	- As a player [Role]
+		- Become the wealthiest player [Benefit]
+
+- In order to become to accumulate wealth[Benefit]
+	- As a player [Role]
+		- Buy property [Feature]
+			- Move around the board [Feature]
+		- Collect rent [Feature]
+		- Get a bonus [Feature]
+		- Take chance cards [Feature]
