@@ -11,7 +11,7 @@ class TestGame < Test::Unit::TestCase
   
   must "Not be able to start a game with less then two players" do
     only_player = Player.new
-    assert_raise( RuntimeError ) {game = Game.new(only_player)}
+    assert_raise( ArgumentError ) {game = Game.new(only_player)}
   end
 
 end
