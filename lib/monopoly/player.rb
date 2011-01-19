@@ -1,3 +1,8 @@
+# Simple die roll method
+def roll_dice
+  1 + rand(6)
+end
+
 class Player
   attr_reader :position
 
@@ -8,21 +13,15 @@ class Player
   def take_turn
     move(roll_dice)
   end
+  
+  # Basic movenment
+  # private
     
-  #private  
   def position=(n)
     @position = n
   end
   
-  def roll_dice
-    1 + rand(6)
-  end
-  
   def move(n)
     self.position += n
-  end
-        
+  end        
 end
-
-#a_player = Player.new
-#putsa_player.take_turn
