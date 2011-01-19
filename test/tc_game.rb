@@ -9,9 +9,9 @@ class TestGame < Test::Unit::TestCase
     assert_equal(3, game.players.count)
   end
   
-#  must "not be able to start a game with less then two players" do
-#    only_player = Player.new
-#    assert_raise( ArgumentError ) {game = Game.new(only_player)}
-#  end
+  must "not be able to start a game with less then two players" do
+    only_player = Player.new; game = Game.instance;
+    assert_raise( ArgumentError ) {game.start(only_player)}
+  end
 
 end
