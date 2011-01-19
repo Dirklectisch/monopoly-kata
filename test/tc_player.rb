@@ -8,9 +8,15 @@ class TestPlayer < Test::Unit::TestCase
     assert_instance_of(Player, a_player)
   end
   
-  must "New player begin at the start position" do
+  must "New player begins at the start position" do
     a_player = Player.new
     assert_equal(0, a_player.position)
   end
   
+  must "Move araund the board at the start of a turn" do
+    a_player = Player.new
+    a_player.take_turn
+    assert_equal(true, a_player.position > 0)
+  end
+
 end
