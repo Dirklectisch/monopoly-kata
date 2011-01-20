@@ -2,7 +2,7 @@ require 'singleton'
 
 class Game
   include Singleton
-  attr_reader :players, :round 
+  attr_reader :players, :round
   
   def start *players
     raise ArgumentError, "Not enough players" if players.count < 2
