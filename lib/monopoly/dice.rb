@@ -3,8 +3,8 @@ class Dice
   attr_reader :count, :sides
   
   def initialize amount = 2
-    @count = amount
     @sides = 6
+    @count = amount
   end
   
   def count= i
@@ -12,18 +12,13 @@ class Dice
   end
   
   def range
-    min = @count
-    max = @count * @sides
-    min..max
+    #min..max
+    (@count)..(@count * @sides)
   end
   
   def roll amount = @count
     amount.times do
       1 + rand(6)
     end
-  end
-  
-  def roll_one
-    1 + rand(6)
   end
 end
