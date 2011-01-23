@@ -19,7 +19,7 @@ class TestPlayer < Test::Unit::TestCase
     assert_operator(a_player.position, :>, 0)
   end
 
-  must "Move from last position over starting position" do
+  must "Move around the board" do
     a_player = Player.new; a_player.move(39);
     2.times do a_player.take_turn end
     assert_operator(a_player.position, :<, 12)  
