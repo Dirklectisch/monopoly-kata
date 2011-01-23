@@ -6,8 +6,9 @@ class Game
   
   def start *players
     raise ArgumentError, "Not enough players" if players.count < 2
+    raise ArgumentError, "Too many players" if players.count > 8
     @players = players
-    self.round = 1
+    round = 1
   end
   
   private

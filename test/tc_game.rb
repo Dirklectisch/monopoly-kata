@@ -13,5 +13,10 @@ class TestGame < Test::Unit::TestCase
     only_player = Player.new; game = Game.instance;
     assert_raise( ArgumentError ) {game.start(only_player)}
   end
-
+  
+  #must "have a randomly determined play order at start of game" do
+  #  player_one, player_two = Player.new;
+  #  game = Game.instance; game.start(player_one, player_two, player_three);
+  #end
+  
 end

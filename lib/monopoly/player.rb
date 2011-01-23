@@ -4,10 +4,11 @@ def roll_dice
 end
 
 class Player
-  attr_reader :position
+  attr_reader :position, :name
 
-  def initialize
-    @position = 0
+  def initialize name = nil
+    @name = name
+    @position = 1
   end
   
   def take_turn
@@ -25,7 +26,7 @@ class Player
   
   def move n
     # Moves the player n places from the current position
-    self.position = (n + self.position) % 20
+    self.position = (n + self.position) % 40
   end
   
 end
