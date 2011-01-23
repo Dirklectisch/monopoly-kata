@@ -3,7 +3,7 @@ require_relative "../lib/monopoly"
 
 class TestPlayer < Test::Unit::TestCase
   
-  must "be able to create new token" do
+  must "Create new token" do
     a_token = Token.new
     assert_instance_of(Token, a_token)
   end

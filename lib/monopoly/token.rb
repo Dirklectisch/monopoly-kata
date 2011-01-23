@@ -1,18 +1,14 @@
 class Token
-  attr_reader :owner, :position
+  attr_reader :position
   
   def initialize
-    #@owner = player
     self.position = 1
   end
   
   def move i
     # Moves the player i places from the current position
     to = i + @position
-    if to > 40
-      to = to % 40
-    end
-    @position = to
+    to > 40 ? @position = to % 40 : @position = to
   end
   
   def owner= player
@@ -26,7 +22,3 @@ class Token
   end
   
 end
-  
-#a_token = Token.new  
-#puts a_token.move 39
-#puts a_token.move 2
