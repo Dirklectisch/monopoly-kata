@@ -1,16 +1,20 @@
 class Game
-  attr_reader :players, :round
+  attr_reader :players, :dice, :round
   
-  def initial *players
-    raise ArgumentError, "Not enough players" if players.count < 2
-    raise ArgumentError, "Too many players" if players.count > 8
-    @players = players
-    round = 1
+  def initialize dice = Dice.new
+    #raise ArgumentError, "Not enough players" if players.count < 2
+    #raise ArgumentError, "Too many players" if players.count > 8
+    #@players = players
+    @dice = dice
+    @round = nill
   end
   
-  private
-  def round=(n)
-    @round = n
+  def dice= dice
+    @dice = dice
+  end
+  
+  def players= *players
+    @players= players
   end
   
 end

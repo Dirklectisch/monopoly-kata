@@ -3,10 +3,10 @@ require_relative "../lib/monopoly.rb"
 
 class TestGame < Test::Unit::TestCase
 
-  must "be able to start a game with several players" do
+  must "Start a game with several players" do
     player_one, player_two, player_three = Player.new; 
-    game = Game.instance; game.start(player_one, player_two, player_three);
-    assert_equal(3, game.players.count)
+    a_game = Game.new player_one, player_two, player_three
+    assert_equal(3, a_game.players.count)
   end
   
   must "not be able to start a game with less then two players" do

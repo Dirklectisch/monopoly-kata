@@ -1,14 +1,28 @@
-# Simple die roll method
-def roll_dice
-  1 + rand(6)
+class Person
+  attr_reader :name
+  
+  def initialize name
+    @name = name
+  end
+  
+  #def self.create *names, type
+    # Returns an array of new person instances
+  #  new_players = []
+  #end
+  
 end
 
-class Player
-  attr_reader :name, :token
+class Player < Person
+  attr_reader :game, :token
 
   def initialize name = nil, token = Token.new
-    @name = name
     @token = token
+    super name
+  end
+  
+  def turn?
+    #Figures out if its the players turn
+    #game.round.turn.player == self
   end
   
 end
