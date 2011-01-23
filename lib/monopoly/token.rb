@@ -2,7 +2,7 @@ class Token
   attr_reader :position
   
   def initialize
-    self.position = 1
+    self.position = 0
   end
   
   def move i

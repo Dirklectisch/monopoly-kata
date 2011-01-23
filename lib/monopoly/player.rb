@@ -4,14 +4,11 @@ def roll_dice
 end
 
 class Player
-  attr_reader :name
+  attr_reader :name, :token
 
-  def initialize name = nil
+  def initialize name = nil, token = Token.new
     @name = name
-  end
-  
-  def take_turn
-    move(roll_dice)
+    @token = token
   end
   
 end

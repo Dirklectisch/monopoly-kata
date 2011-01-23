@@ -8,8 +8,8 @@ class TestPlayer < Test::Unit::TestCase
     assert_instance_of(Player, anon_player)
   end
   
-  must "New player begins at the starting position" do
-    a_player = Player.new
-    assert_equal(1, a_player.position)
+  must "New players get a token" do
+    a_player = Player.new  
   end
+  
 end
