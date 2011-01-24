@@ -10,8 +10,8 @@ class TestGame < Test::Unit::TestCase
   end
   
   must "not be able to start a game with less then two players" do
-    only_player = Player.new; game = Game.instance;
-    assert_raise( ArgumentError ) {game.start(only_player)}
+    only_player = Player.new; game = Game.new only_player;
+    assert_raise( ArgumentError ) {game.start}
   end
   
   #must "have a randomly determined play order at start of game" do
