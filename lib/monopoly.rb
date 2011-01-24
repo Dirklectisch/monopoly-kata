@@ -1,6 +1,6 @@
 require "monopoly/game"
 require "monopoly/player"
-require "monopoly/token"
+require "monopoly/pawn"
 require "monopoly/dice"
 require "monopoly/board"
 

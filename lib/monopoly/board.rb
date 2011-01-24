@@ -18,4 +18,6 @@ class Board
     return rel
   end
   
+  alias :dest :destination
+  
 end
