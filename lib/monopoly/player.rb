@@ -8,10 +8,10 @@ class Player
   end
   
   def take_turn
-    puts "Player is at position #{pawn.position}"
-    dice.roll #Player rolls dice
-    puts "Player rolls #{dice.value}"
-    pawn.move dice.value #Player moves pawn
+    puts "Player #{name} is at position #{pawn.position}"
+    roll = dice.roll #Player rolls dice
+    puts "Player rolls #{roll}"
+    pawn.move roll #Player moves pawn
     puts "Player moved to position #{pawn.position}"
   end
   
