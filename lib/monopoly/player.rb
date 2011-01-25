@@ -1,29 +1,27 @@
-class Person
-  attr_reader :name
-  
-  def initialize name
+class Player
+  attr_reader :name, :dice, :pawn
+
+  def initialize name = "anon", pawn = Pawn.new; dice = Dice.new
     @name = name
+    @pawn = pawn
+    @dice = dice
   end
   
-  #def self.create *names, type
-    # Returns an array of new person instances
-  #  new_players = []
-  #end
-  
-end
-
-class Player < Person
-  attr_reader :token
-
-  def initialize name = nil, token = Token.new
-    @token = token
-    super name
+  def take_turn
+    puts "Player is at position #{pawn.position}"
+    dice.roll #Player rolls dice
+    puts "Player rolls #{dice.value}"
+    pawn.move dice.value #Player moves pawn
+    puts "Player moved to position #{pawn.position}"
   end
   
-  def turn?
-    #Figures out if its the players turn
-    #game.round.turn.player == self
-    
+  private
+  
+  def pawn= new_pawn
+    @pawn = new_pawn
   end
   
+  def name= new_name
+    @name = new_name
+  end
 end

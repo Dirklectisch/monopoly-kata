@@ -10,12 +10,12 @@ end
 class Pawn
   attr_reader :position
   
-  def initialize board
+  def initialize board = Board.new
     @board = board
     @position = board.start
   end
   
-  def move distance # Moves pawn n places on the board
+  def move distance # Moves pawn 'distance' on the board
     @position = @board.dest @position, distance
   end
   

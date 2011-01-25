@@ -15,7 +15,9 @@ class TestPawn < Test::Unit::TestCase
   
   must "Move an amount of positions on the board" do
     a_pawn = Pawn.create;
-    assert_equal 6, a_pawn.move(5) 
+    assert_equal 6, a_pawn.move(5)
+    assert_equal 36, a_pawn.move(30)
+    assert_equal 40, a_pawn.move(4)
+    assert_equal 5, a_pawn.move(5)  
   end
-  
 end

@@ -13,8 +13,10 @@ class TestPlayer < Test::Unit::TestCase
     assert_equal("player_one", a_player.name)
   end
   
-  must "Verify if it's the players turn" do
-    player_one, player_two = Player.new
-    
-  end
+  must "Excecutes turn movement" do
+    a_player = Player.new; his_pawn = a_player.pawn;
+    a_player.take_turn;
+    assert(his_pawn.position > 1)
+  end 
+  
 end

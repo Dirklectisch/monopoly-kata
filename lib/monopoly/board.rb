@@ -8,14 +8,13 @@ class Board
     1
   end
   
-  def destination curr, dist
-    abs = curr + dist
-    if abs < 40 then
-      rel = abs
+  def destination current, distance
+    rel_dest = current + distance
+    if rel_dest > 40 then
+      dest = rel_dest % 40
     else
-      rel = abs % 40
+      dest = rel_dest
     end
-    return rel
   end
   
   alias :dest :destination
