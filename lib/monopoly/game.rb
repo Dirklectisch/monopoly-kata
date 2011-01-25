@@ -1,4 +1,6 @@
 class Game
+  # Game objects are responsible for managing game phases
+  
   attr_reader :players, :dice, :round
   
   def initialize dice = Dice.new

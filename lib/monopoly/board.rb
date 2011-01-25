@@ -1,7 +1,7 @@
 class Board
   
-  def initialize
-    @postions = 40
+  def initialize positions = 40
+    @postions = positions
   end
   
   def start

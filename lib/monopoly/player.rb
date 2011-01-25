@@ -13,7 +13,7 @@ class Person
 end
 
 class Player < Person
-  attr_reader :game, :token
+  attr_reader :token
 
   def initialize name = nil, token = Token.new
     @token = token
@@ -23,6 +23,7 @@ class Player < Person
   def turn?
     #Figures out if its the players turn
     #game.round.turn.player == self
+    
   end
   
 end

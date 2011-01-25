@@ -27,4 +27,10 @@ class TestDice < Test::Unit::TestCase
     five_dice = Dice.new 5
     assert two_dice.range.include? two_dice.roll
   end
+  
+  must "Remember value of last roll" do
+    two_dice = Dice.new; two_dice.roll;
+    two_dice.last_roll;
+  end
+  
 end
