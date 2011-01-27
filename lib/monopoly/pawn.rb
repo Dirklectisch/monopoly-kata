@@ -1,3 +1,5 @@
+require 'monopoly/board'
+
 class Pawn
   # Pawn factory
   

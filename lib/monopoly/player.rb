@@ -1,3 +1,6 @@
+require 'monopoly/pawn'
+require 'monopoly/dice'
+
 class Player
   attr_reader :name, :dice, :pawn
 
