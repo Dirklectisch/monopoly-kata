@@ -4,7 +4,7 @@ require 'monopoly/dice'
 class Player
   attr_reader :name, :dice, :pawn
 
-  def initialize name = "anon", pawn = Pawn.new; dice = Dice.new
+  def initialize name = nil, pawn = Pawn.new; dice = Dice.new
     @name = name
     @pawn = pawn
     @dice = dice
@@ -16,6 +16,10 @@ class Player
     puts "Player rolls #{roll}"
     pawn.move roll #Player moves pawn
     puts "Player moved to position #{pawn.position}"
+  end
+  
+  def to_s
+    self.name || super
   end
   
   private
