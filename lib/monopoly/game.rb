@@ -1,4 +1,4 @@
-require 'monopoly/player'
+#require 'monopoly/player'
 
 class Game
   
@@ -6,6 +6,11 @@ class Game
     players.flatten!
     raise ArgumentError, "Not enough players" if players.count < 2
     raise ArgumentError, "Too many players" if players.count > 2
+    self.players = players
+  end
+  
+  def players= *players
+    players.flatten!.shuffle!
     @players = players
   end
   
@@ -13,10 +18,5 @@ class Game
     @players
   end
   
-  private
-  
-  def players= *players
-    @players = players
-  end
-  
 end
+
