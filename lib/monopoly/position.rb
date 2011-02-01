@@ -1,25 +1,21 @@
-require 'YAML'
-
 class Position
-  
-  def self.load path
-    YAML.load_file path
+  # Factory
+  def Position.create_batch blueprints
+    blueprints.each do |key, props|
+      blueprints[key] = Position.new(props)
+    end
+    return blueprints
   end
   
-end
-
-class Position 
+  # Instance 
   attr_reader :name
   
   def initialize name
     @name = name
   end
   
-  def save path
-    File.open(path.to_s, 'w') do |out|
-      YAML::dump(self, out)
-    end
+  def to_s
+    self.name
   end
-
+  
 end
-
