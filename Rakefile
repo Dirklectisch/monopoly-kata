@@ -3,14 +3,15 @@ require 'rake/testtask'
 ENV['APP_ROOT'] = File.dirname(__FILE__)
 ENV['LIBDIR'] = ENV['APP_ROOT'].to_s + '/lib'
 
-desc "Open an irb session preloaded with ENV variables"
+desc "Open an irb session preloaded with paths and modules"
 task :console do
-  sh "irb -I #{ENV['LIBDIR']} --simple-prompt"
+  sh "irb -I #{ENV['LIBDIR']} -r #{'monopoly'} --simple-prompt"
 end
 
 Rake::TestTask.new(:test_movement) do |t|
    t.libs << 'test'
-   t.test_files = ['test/tc_position.rb']
+   t.test_files = ['test/tc_position.rb',
+                   'test/tc_board.rb'   ]
 end
 
 Rake::TestTask.new(:test_all) do |t|
