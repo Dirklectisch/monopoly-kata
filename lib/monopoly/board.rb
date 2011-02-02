@@ -1,38 +1,50 @@
 require 'YAML'
-require_relative './position'
+require 'monopoly/position'
 
 class Board
   
-  def Board.load_preset
+  def Board.load_preset preset_file = 'board_positions_uk.yml'
+    # Loads a preset of positions from disk
+    
+    # Define path where presets are stored
+    preset_path = ENV['APP_ROOT'] + '/config/'
+    
     # Load serialized positions from file
-    preset_file = File.open('board_positions_uk.yml')
+    preset_file = File.open(preset_path + preset_file)
     position_hash = YAML.load(preset_file)
     preset_file.close
   
     # Batch create positions 
-    positions = Position.create_batch(position_hash)
-    return Board.new positions
+    Position.create_batch(position_hash)
   end
   
-  attr_reader :positions
-  
-  def initialize positions
-    @postions = positions
+  def Board.create positions = Board.load_preset
+    Board.new positions
   end
   
-  #def start
-  #  1
-  #end
+  #Instance
   
-  #def destination current, distance
-  #  rel_dest = current + distance
-  #  if rel_dest > 40 then
-  #    dest = rel_dest % 40
-  #  else
-  #    dest = rel_dest
-  #  end
-  #end
+  #attr_reader :positions
   
-  #alias :dest :destination
+  def initialize board_positions
+    @postions = board_positions
+  end
+  
+  def positions
+    @positions
+  end
   
 end
+
+#def start_position
+#  1
+#end
+
+#def destination current, distance
+#  rel_dest = current + distance
+#  if rel_dest > 40 then
+#    dest = rel_dest % 40
+#  else
+#    dest = rel_dest
+#  end
+#end

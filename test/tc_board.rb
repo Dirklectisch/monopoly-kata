@@ -1,29 +1,12 @@
-require "unit_extensions"
-require_relative "../lib/monopoly"
+require 'monopoly/board'
+require 'minitest/autorun'
 
-class TestBoard < Test::Unit::TestCase
+describe Board do
   
-  must "Create new game board" do
-    a_board = Board.new
-    assert_instance_of Board, a_board
-  end
-
-  must "Tell relative destination position" do
-    a_board = Board.new; curr = 1;
-    # Test Case 1
-    curr = a_board.destination curr, 4;
-    assert_equal 5, curr;
-    # Test Case 2
-    curr = a_board.destination curr, 34;
-    assert_equal 39, curr;
-    # Test Case 3
-    curr = a_board.destination curr, 8;
-    assert_equal 7, curr;
-  end
-  
-  must "Must return starting position" do
-    a_board = Board.new
-    assert_equal 1, a_board.start
+  it "creates a board from a preset of positions" do
+    preset_board = Board.load_preset
+    board_positions = preset_board.positions()
+    board_positions.count.must_be 40
   end
   
 end
