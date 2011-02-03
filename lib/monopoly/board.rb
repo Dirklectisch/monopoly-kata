@@ -23,15 +23,10 @@ class Board
   end
   
   #Instance
-  
-  #attr_reader :positions
+  attr_reader :positions
   
   def initialize board_positions
-    @postions = board_positions
-  end
-  
-  def positions
-    @positions
+    @positions = board_positions
   end
   
 end
