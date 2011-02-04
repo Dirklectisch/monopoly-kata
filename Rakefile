@@ -8,10 +8,10 @@ task :console do
   sh "irb -I #{ENV['LIBDIR']} -r #{'monopoly'} --simple-prompt"
 end
 
-Rake::TestTask.new(:test_movement) do |t|
+Rake::TestTask.new(:test) do |t|
    t.libs << 'test'
-   t.test_files = ['test/tc_position.rb',
-                   'test/tc_board.rb'   ]
+   t.test_files = ['test/riot/tc_position.rb',
+                   'test/riot/tc_presets.rb' ]
 end
 
 Rake::TestTask.new(:test_all) do |t|
