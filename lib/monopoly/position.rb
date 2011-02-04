@@ -1,6 +1,6 @@
 class Position
   # Factory
-  def Position.create_batch blueprints
+  def Position.batch_create blueprints # = {:key => [props]}
     blueprints.each do |key, props|
       blueprints[key] = Position.new(props)
     end
@@ -12,10 +12,6 @@ class Position
   
   def initialize name
     @name = name
-  end
-  
-  def to_s
-    self.name
   end
   
 end
