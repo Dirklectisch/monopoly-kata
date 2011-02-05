@@ -10,8 +10,13 @@ end
 
 desc "Open TODO list"
 task :todo do
+<<<<<<< HEAD
   file = ENV['APP_ROOT'] + '/TODO.taskpaper'
   sh "open #{file}"
+=======
+  todo_file = ENV['APP_ROOT'] + '/TODO.taskpaper'
+  sh "open #{todo_file}"
+>>>>>>> 815588aa507aca91964e3b2020c94f2107ff329e
 end
 
 Rake::TestTask.new(:test) do |t|
