@@ -1,10 +1,10 @@
 class Position
   # Factory
   def Position.batch_create blueprints # = {:key => [props]}
-    blueprints.each do |key, props|
-      blueprints[key] = Position.new(props)
-    end
-    return blueprints
+    #blueprints.each do |key, props|
+    #  blueprints[key] = Position.new(props)
+    #end
+    blueprints.map { |props| Position.new(props) }
   end
   
   # Instance 

@@ -15,15 +15,15 @@ context Position do
     
   end
   
-  context "creates position objects from hash" do
+  context "creates a batch of position objects from hash" do
     setup do
       hash = {'key_one' => 'name_one',
               'key_two' => 'name_two'}
       Position.batch_create hash
     end
+    asserts("returns an Array") {topic.is_a?(Array)}
     asserts_topic.size(2)
-    asserts("second value in hash") {topic['key_two']}.kind_of(Position)
-
+    asserts("second value") {topic[1]}.kind_of(Position)
   end
   
 end
