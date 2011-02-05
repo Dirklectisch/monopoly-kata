@@ -11,7 +11,8 @@ end
 Rake::TestTask.new(:test) do |t|
    t.libs << 'test'
    t.test_files = ['test/riot/tc_position.rb',
-                   'test/riot/tc_presets.rb' ]
+                   'test/riot/tc_presets.rb', 
+                   'test/riot/tc_board.rb' ]
 end
 
 Rake::TestTask.new(:test_all) do |t|

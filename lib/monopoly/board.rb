@@ -1,32 +1,21 @@
-require 'YAML'
 require 'monopoly/position'
+require 'monopoly/presets'
 
 class Board
   
-  def Board.load_preset preset_file = 'board_positions_uk.yml'
-    # Loads a preset of positions from disk
-    
-    # Define path where presets are stored
-    preset_path = ENV['APP_ROOT'] + '/config/'
-    
-    # Load serialized positions from file
-    preset_file = File.open(preset_path + preset_file)
-    position_hash = YAML.load(preset_file)
-    preset_file.close
-  
-    # Batch create positions 
-    Position.create_batch(position_hash)
+  def Board.create
+    Board.new Board.default_positions
   end
   
-  def Board.create positions = Board.load_preset
-    Board.new positions
+  def Board.default_positions
+    Position.batch_create Presets.load('positions_uk.yml');
   end
   
   #Instance
   attr_reader :positions
   
-  def initialize board_positions
-    @positions = board_positions
+  def initialize positions
+    @positions = positions
   end
   
 end
