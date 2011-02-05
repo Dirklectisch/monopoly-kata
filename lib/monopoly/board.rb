@@ -5,19 +5,19 @@ class Board
   # Public constructor
   def Board.create
     Board.new Board.default_positions
-  end # Returns a new default UK board
+  end # Creates a new default UK board
   
   def initialize positions
     @positions = positions
     @players = {}
-  end # Returns a new board
+  end # Creates a new board
   
   # Private class
   private
   
   def Board.default_positions
     Position.batch_create Presets.load('positions_uk.yml');
-  end # Returns a preset of default position
+  end # Loads a preset of default position
   
   # Public instance
   public
@@ -38,13 +38,25 @@ class Board
   private
   
   def position number
-    number -= 1
-    self.positions.at(number)  
+    index = number - 1
+    if index > 40
+      raise ArgumentError, "Requested position #{number} does not exist"
+    elseif index < 1
+      raise ArgumentError, "Requested position #{number} does not exist"
+    else
+      self.positions.at(index)
+    end
   end # Returns the requested position
   
   def relative position, distance
-    position(position.to_i + distance)
-  end # Returns position #distance away form #position
+    rel_dest = position.to_i + distance
+    if rel_dest > 40 then
+      abs_dest = rel_dest % 40
+    else
+      abs_dest = rel_dest
+    end
+    position(abs_dest)
+  end # Returns position #distance away from #position
   
 end
 
