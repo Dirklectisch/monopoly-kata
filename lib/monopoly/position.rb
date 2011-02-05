@@ -18,6 +18,10 @@ class Position
     self.objects << object;
   end
   
+  def includes? object
+    self.objects.include? object
+  end
+
   def objects
     @objects || @objects = []
   end
