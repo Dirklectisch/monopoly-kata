@@ -5,11 +5,16 @@ class Position
   end # Returns array of new positions
   
   # Instance 
-  attr_reader :name
+  attr_reader :name, :numb
   
   def initialize numb = nil, name
+    @numb = numb
     @name = name
   end
+  
+  def to_i
+    self.numb    
+  end # Returns the number on the board
   
   def place object
     self.objects << object;

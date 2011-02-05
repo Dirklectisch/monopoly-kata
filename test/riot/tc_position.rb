@@ -17,8 +17,8 @@ context Position do
   
   context "creates a batch of position objects from hash" do
     setup do
-      hash = {'key_one' => 'name_one',
-              'key_two' => 'name_two'}
+      hash = { 1 => 'name_one',
+               2 => 'name_two'}
       Position.batch_create hash
     end
     asserts("returns an Array") {topic.is_a?(Array)}
