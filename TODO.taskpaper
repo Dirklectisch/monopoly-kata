@@ -1,16 +1,39 @@
 Monopoly Kata:
-	Features:
-		- FT: Move around the board 
-			- AS: Move from starting position @in-progress
-			- AS: Make a complete roundtrip
-			- AS: Make several roundtrips
-		- FT: Start a new game
-		- FT: Play a round
-
+	Planned Features:
+		RL: 0.1.0:
+			- FT: Move around the board
+				- AS: Move from start position
+				- AS: Make one or more roundtrips
+			- FT: Start a new game
+				- AS: A of two to eight players
+				- AS: A nine player game
+				- AS: A single player game
+				- AS: Hunderd two player games
+			- FT: Play game rounds
+				- AS: Play several rounds
+				- AS: Play complete game of twenty rounds
+			
+	RL = Release
 	FT = Feature
 	AS = Acceptence Scenario
 
-	
+	Work breakdown structure:
+		- FT: Move around the board
+			- Model @in-progress
+				- Put a player on start position @done
+				- Create a batch of positions from any enumarable @done
+				- Fix error in determening board positions @done
+				- Determine positions place on board @done
+				- Determine relative position on board @done
+				- Move a player several positions forward @done
+				- Use 'tell don't ask' principle' to determine private methods @done
+				- Player moves in a rountrip on the board @done
+				- Refactor position request error handling
+				- Refactor method that determines relative destination
+			- Controller
+			- View
+		
+
 
 
 		 
