@@ -1,0 +1,16 @@
+Monopoly Kata:
+	Features:
+		- FT: Move around the board 
+			- AS: Move from starting position @in-progress
+			- AS: Make a complete roundtrip
+			- AS: Make several roundtrips
+		- FT: Start a new game
+		- FT: Play a round
+
+	FT = Feature
+	AS = Acceptence Scenario
+
+	
+
+
+		 
