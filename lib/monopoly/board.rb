@@ -2,33 +2,40 @@ require 'monopoly/position'
 require 'monopoly/presets'
 
 class Board
-  
+  # Public constructor
   def Board.create
     Board.new Board.default_positions
-  end
-  
-  def Board.default_positions
-    Position.batch_create Presets.load('positions_uk.yml');
-  end
-  
-  attr_reader :positions, :players
+  end # Returns a new default UK board
   
   def initialize positions
     @positions = positions
     @players = {}
-  end
+  end # Returns a new board
   
-  def place player
+  # Private class
+  private
+  
+  def Board.default_positions
+    Position.batch_create Presets.load('positions_uk.yml');
+  end # Returns a preset of default position
+  
+  # Public instance
+  public
+   
+  attr_reader :positions, :players
+  
+  def place player 
     position(1).place player
     players[player] = position(1)
-  end
+  end # Player placed on starting position
   
   def move player, moves
     destination = relative(players[player], moves)
     players[player] = destination
   end # Player moved forward on the board
   
-  # Private
+  # Private Instance
+  private
   
   def position number
     number -= 1
