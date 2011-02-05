@@ -8,6 +8,12 @@ task :console do
   sh "irb -I #{ENV['LIBDIR']} -r #{'monopoly'} --simple-prompt"
 end
 
+desc "Open TODO list"
+task :todo do
+  todo_file = ENV['APP_ROOT'] + '/TODO.taskpaper'
+  sh "open #{todo_file}"
+end
+
 Rake::TestTask.new(:test) do |t|
    t.libs << 'test'
    t.test_files = ['test/riot/tc_position.rb',
