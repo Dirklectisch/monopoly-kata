@@ -23,10 +23,21 @@ class Board
     players[player] = position(1)
   end
   
-  def position numb
-    numb -= 1
-    positions.at(numb)  
+  def move player, moves
+    destination = relative(players[player], moves)
+    players[player] = destination
+  end # Player moved forward on the board
+  
+  # Private
+  
+  def position number
+    number -= 1
+    self.positions.at(number)  
   end # Returns the requested position
+  
+  def relative position, distance
+    position(position.to_i + distance)
+  end # Returns position #distance away form #position
   
 end
 

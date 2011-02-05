@@ -14,6 +14,12 @@ context Board do
       asserts("correct start position is found") { topic.name }.equals("Go")
       asserts("player is at start position") { topic.includes? :a_player}
     end
+    context ", move a player five places forward." do
+      helper(:a_player) { Player.new }
+      hookup { topic.place(:a_player) }
+      setup  { topic.move(:a_player, 5)}
+      asserts("player position") {topic.to_i}.equals(6)
+    end
   end
   
 end
