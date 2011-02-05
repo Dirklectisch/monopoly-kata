@@ -1,16 +1,13 @@
 class Position
   # Factory
-  def Position.batch_create blueprints # = {:key => [props]}
-    #blueprints.each do |key, props|
-    #  blueprints[key] = Position.new(props)
-    #end
-    blueprints.map { |props| Position.new(props) }
-  end
+  def Position.batch_create blueprints
+    blueprints.map { |props| Position.new(*props) }
+  end # Returns array of new positions
   
   # Instance 
   attr_reader :name
   
-  def initialize name
+  def initialize numb = nil, name
     @name = name
   end
   

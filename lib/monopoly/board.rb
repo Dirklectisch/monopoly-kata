@@ -11,16 +11,22 @@ class Board
     Position.batch_create Presets.load('positions_uk.yml');
   end
   
-  attr_reader :positions
+  attr_reader :positions, :players
   
   def initialize positions
     @positions = positions
+    @players = {}
   end
   
   def place player
-    positions[1].place player
-    return positions[1]
+    position(1).place player
+    players[player] = position(1)
   end
+  
+  def position numb
+    numb -= 1
+    positions.at(numb)  
+  end # Returns the requested position
   
 end
 
