@@ -14,4 +14,12 @@ class Position
     @name = name
   end
   
+  def place object
+    self.objects << object;
+  end
+  
+  def objects
+    @objects || @objects = []
+  end
+
 end

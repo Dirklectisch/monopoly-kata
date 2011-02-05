@@ -3,9 +3,16 @@ require 'monopoly/position'
 
 context Position do
   
-  context "creates position object called 'left'" do
+  context "creates instance named 'left'" do
     setup { Position.new "left"}
     asserts("name") {topic.name}.equals("left")     
+    
+    context "and places an object" do
+      helper (:an_object) { Object.new }
+      hookup { topic.place an_object }
+      asserts("the amount of objects") {topic.objects}.size(1) 
+    end
+    
   end
   
   context "creates position objects from hash" do
@@ -16,6 +23,7 @@ context Position do
     end
     asserts_topic.size(2)
     asserts("second value in hash") {topic['key_two']}.kind_of(Position)
+
   end
   
 end
