@@ -1,5 +1,5 @@
-require 'riot'
 require 'monopoly/position'  
+require 'teststrap'
 
 context Position do
   

@@ -1,5 +1,5 @@
 require 'monopoly/game'
-require 'riot'
+require 'teststrap'
 
 context Game do
   setup { Game }

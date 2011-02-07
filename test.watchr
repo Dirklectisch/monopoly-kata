@@ -4,9 +4,9 @@
 # --------------------------------------------------
 # Rules
 # --------------------------------------------------
-watch( '^test/tc_.*\.rb'                 )  { |m| ruby  m[0] }
-watch( '^lib/(.*)\.rb'                   )  { |m| ruby "test/tc_#{m[1]}.rb" }
-watch( '^lib/monopoly/(.*)\.rb'          )  { |m| ruby "test/tc_#{m[1]}.rb" }
+watch( '^test/riot/tc_.*\.rb'            )  { |m| ruby  m[0] }
+watch( '^lib/(.*)\.rb'                   )  { |m| test "test/riot/tc_#{m[1]}.rb" }
+watch( '^lib/monopoly/(.*)\.rb'          )  { |m| test "test/riot/tc_#{m[1]}.rb" }
 
 # --------------------------------------------------
 # Signal Handling
@@ -17,19 +17,26 @@ Signal.trap('INT' ) { abort("\n") } # Ctrl-C
 # --------------------------------------------------
 # Helpers
 # --------------------------------------------------
+
+def test(test)
+  run "rake test TEST=test"
+end
+
 def ruby(*paths)
-  run "ruby #{gem_opt} -I.:lib:test -e'%w( #{paths.flatten.join(' ')} ).each {|p| require p }'"
+  run "ruby -I.:lib:test -e'%w( #{paths.flatten.join(' ')} ).each {|p| require p }'"
 end
 
 def tests
-  Dir['test/**/tc_*.rb'] - ['test/test_helper.rb']
+  Dir['test/riot/tc_*.rb'] - ['test/test_helper.rb']
 end
 
 def run( cmd )
-  puts   cmd
+  #growl  cmd
   system cmd
 end
 
-def gem_opt
-  defined?(Gem) ? "-rubygems" : ""
+def growl(message, title = "Test Results:")
+  growlnotify = `which growlnotify`.chomp
+  options = "-m '#{message}' -t '#{title}'"      
+  system %(#{growlnotify} #{options} &)
 end

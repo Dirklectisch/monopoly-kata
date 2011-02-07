@@ -1,6 +1,6 @@
-require 'riot'
 require 'monopoly/board'
 require 'monopoly/player'
+require 'teststrap'
 
 context Board do
   setup { Board }

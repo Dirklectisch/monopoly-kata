@@ -1,5 +1,5 @@
-require 'riot'
 require 'monopoly/presets'
+require 'teststrap'
 
 context Presets do
   
