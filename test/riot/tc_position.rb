@@ -2,18 +2,8 @@ require 'monopoly/position'
 require 'teststrap'
 
 context Position do
-  
-  context "creates instance named 'left'" do
-    setup { Position.new "left"}
-    asserts("name") {topic.name}.equals("left")     
-    
-    context "and places an object" do
-      helper (:an_object) { Object.new }
-      hookup { topic.place an_object }
-      asserts("the amount of objects") {topic.objects}.size(1) 
-    end
-    
-  end
+  setup{ Position }
+  asserts("Intializes postion") { topic.new "left" }.kind_of(Position)
   
   context "creates a batch of position objects from hash" do
     setup do

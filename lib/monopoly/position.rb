@@ -16,8 +16,9 @@ class Position
     self.numb    
   end # Returns the number on the board
   
-  def place object
-    self.objects << object;
+  def place player
+    # Apply effects on placed player here
+    return self
   end
   
   def includes? object
