@@ -21,7 +21,9 @@ Rake::TestTask.new(:test) do |t|
    t.test_files = ['test/riot/tc_position.rb',
                    'test/riot/tc_presets.rb', 
                    'test/riot/tc_board.rb',
-                   'test/riot/tc_game.rb']
+                   'test/riot/tc_game.rb',
+                   'test/riot/tc_player.rb',
+                   'test/riot/tc_dice.rb']
 end
 
 Rake::TestTask.new(:test_all) do |t|

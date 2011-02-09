@@ -7,6 +7,10 @@ class Player
     @name = name
   end
   
+  def roll_dice dice
+    dice.roll
+  end
+  
   def to_s
     self.name
   end
