@@ -19,43 +19,23 @@ class Board
     Position.batch_create Presets.load('positions_uk.yml');
   end # Loads a preset of default position
   
-  # Public instance
-  public
-   
-  attr_reader :positions, :players
+  public # instance
+  
+  attr_reader :positions
   
   def place player 
-    position(1).place player
-    players[player] = position(1)
+    player.position = positions.at(0)
   end # Player placed on starting position
   
   def move player, moves
-    destination = relative(players[player], moves)
-    players[player] = destination
+    current = positions.index(player.position)
+    normalized_distance = moves % 40
+    destination = current + normalized_distance
+    reversed_destination = destination - 40
+    player.position = positions.at(reversed_destination)
   end # Player moved forward on the board
   
-  # Private Instance
-  private
-  
-  def position number
-    index = number - 1
-    if index > 40
-      raise ArgumentError, "Requested position #{number} does not exist"
-    elseif index < 1
-      raise ArgumentError, "Requested position #{number} does not exist"
-    else
-      self.positions.at(index)
-    end
-  end # Returns the requested position
-  
   def relative position, distance
-    rel_dest = position.to_i + distance
-    if rel_dest > 40 then
-      abs_dest = rel_dest % 40
-    else
-      abs_dest = rel_dest
-    end
-    position(abs_dest)
   end # Returns position #distance away from #position
   
 end
