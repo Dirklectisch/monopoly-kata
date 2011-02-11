@@ -1,4 +1,4 @@
-require 'monopoly/presets'
+require 'monopoly/models/presets'
 require 'teststrap'
 
 context Presets do

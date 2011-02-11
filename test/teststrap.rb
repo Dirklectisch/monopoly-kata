@@ -35,6 +35,6 @@ module Riot
     
   end
   
-  Riot.reporter = GrowlReporter
+  Riot.reporter = StoryReporter
   
 end

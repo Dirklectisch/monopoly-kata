@@ -1,4 +1,4 @@
-require 'monopoly/board'
+require 'monopoly/models/board'
 
 class Pawn
   # Pawn factory

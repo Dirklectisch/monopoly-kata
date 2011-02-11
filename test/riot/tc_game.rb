@@ -1,4 +1,4 @@
-require 'monopoly/game'
+require 'monopoly/models/game'
 require 'teststrap'
 
 context Game do

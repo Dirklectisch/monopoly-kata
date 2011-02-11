@@ -1,5 +1,5 @@
-require 'monopoly/game'
-require 'monopoly/dice'
+require 'monopoly/models/game'
+require 'monopoly/models/dice'
 require 'teststrap'
 
 context Player do

@@ -1,4 +1,4 @@
-require 'monopoly/position'  
+require 'monopoly/models/position'  
 require 'teststrap'
 
 context Position do

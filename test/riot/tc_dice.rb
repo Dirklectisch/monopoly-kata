@@ -1,5 +1,5 @@
 require 'teststrap'
-require 'monopoly/dice'
+require 'monopoly/models/dice'
 
 context "One hunderd dice rolls" do
   setup { Dice.new }

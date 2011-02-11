@@ -1,5 +1,5 @@
-require 'monopoly/board'
-require 'monopoly/player'
+require 'monopoly/models/board'
+require 'monopoly/models/player'
 require 'teststrap'
 
 context Board do
