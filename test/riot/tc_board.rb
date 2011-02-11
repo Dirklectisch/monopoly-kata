@@ -2,6 +2,8 @@ require 'monopoly/models/board'
 require 'monopoly/models/player'
 require 'teststrap'
 
+include Monopoly::Models
+
 context Board do
   setup { Board }
   asserts("it initializes a new board") {topic.new 'some_positions'}.kind_of?(Board)

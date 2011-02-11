@@ -1,6 +1,8 @@
 require 'teststrap'
 require 'monopoly/models/dice'
 
+include Monopoly::Models
+
 context "One hunderd dice rolls" do
   setup { Dice.new }
   setup do
@@ -19,5 +21,4 @@ context "One hunderd dice rolls" do
     topic.reject! { |i| i > 13 }
     topic.size == 100
   end
-
 end

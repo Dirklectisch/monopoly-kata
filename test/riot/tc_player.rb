@@ -1,6 +1,8 @@
-require 'monopoly/models/game'
+require 'monopoly/models/player'
 require 'monopoly/models/dice'
 require 'teststrap'
+
+include Monopoly::Models
 
 context Player do
   setup { Player }

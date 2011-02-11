@@ -1,6 +1,8 @@
 require 'monopoly/models/game'
 require 'teststrap'
 
+include Monopoly::Models
+
 context Game do
   setup { Game }
   asserts("it intializes a new game") { topic.new('player_one', 'player_two') }.is_a?(Game)

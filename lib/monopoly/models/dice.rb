@@ -1,8 +1,12 @@
 
-class Dice
+module Monopoly
+  module Models
+    class Dice
 
-  def roll
-    2 + rand(6)
-  end # Roll the dice
+      def roll
+        2 + rand(6)
+      end # Roll the dice
 
-end # A set of two six sided dice
+    end # A set of two six sided dice
+  end
+end

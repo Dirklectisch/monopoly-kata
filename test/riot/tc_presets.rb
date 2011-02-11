@@ -1,6 +1,8 @@
 require 'monopoly/models/presets'
 require 'teststrap'
 
+include Monopoly::Models
+
 context Presets do
   
   context "loads a serialized hash" do

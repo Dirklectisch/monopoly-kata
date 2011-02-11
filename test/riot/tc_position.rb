@@ -1,6 +1,8 @@
 require 'monopoly/models/position'  
 require 'teststrap'
 
+include Monopoly::Models
+
 context Position do
   setup{ Position }
   asserts("Intializes postion") { topic.new "left" }.kind_of(Position)
