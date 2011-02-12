@@ -4,6 +4,11 @@ module Monopoly
   module Models
     
     class Player
+      
+      def Player.batch_create blueprints
+        blueprints.map { |props| Player.new(*props) }
+      end # Returns array of new positions
+      
       attr_reader :name, :position
 
       def initialize name = 'anonymous'
