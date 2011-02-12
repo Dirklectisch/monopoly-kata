@@ -7,7 +7,10 @@ include Monopoly::Models
 context Player do
   setup { Player }
   asserts("Initializes a new player") { topic.new "The Player" }.kind_of(Player)
-  asserts("creates a batch of players") { topic.batch_create ["One", "Two"] }.kind_of(Array)
+  asserts("creates a batch of players") do
+    some_players = topic.batch_create ["One", "Two"]
+    some_players.at(1).is_a? Player
+  end
   
   # Need to mock the Dice to properly test this
   context "A Player" do

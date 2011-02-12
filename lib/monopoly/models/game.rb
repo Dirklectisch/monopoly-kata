@@ -4,6 +4,11 @@ module Monopoly
   module Models
 
     class Game
+      def Game.create *names
+        new_players = Player.batch_create(names)
+        self.new *new_players
+      end
+      
       attr_reader :players
 
       def initialize *players

@@ -10,6 +10,9 @@ context Game do
   asserts("intializing a nine player game") do
     topic.new('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')
   end.raises (ArgumentError)
+  asserts("Create a game with several players") do
+    topic.create "one", "two"
+  end.kind_of(Game)
   asserts("In a hunderd two player games, the number of play orders that occurs") do  
     play_order = []
     100.times do
