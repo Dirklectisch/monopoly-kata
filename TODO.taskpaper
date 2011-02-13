@@ -5,7 +5,7 @@ Monopoly Kata:
 				- AS: Move from start position
 				- AS: Make one or more roundtrips
 			- FT: Start a new game
-				- AS: A of two to eight players
+				- AS: A game of two to eight players
 				- AS: A nine player game
 				- AS: A single player game
 				- AS: Hunderd two player games
@@ -17,21 +17,10 @@ Monopoly Kata:
 	FT = Feature
 	AS = Acceptence Scenario
 
-	Work breakdown structure:
+	Work Breakdown Structure:
 		- FT: Move around the board
-			- Model @in-progress
-				- Put a player on start position @done
-				- Create a batch of positions from any enumarable @done
-				- Fix error in determening board positions @done
-				- Determine positions place on board @done
-				- Determine relative position on board @done
-				- Move a player several positions forward @done
-				- Use 'tell don't ask' principle' to determine private methods @done
-				- Player moves in a rountrip on the board @done
-				- Refactor position request error handling
-				- Refactor method that determines relative destination
-			- Controller
-			- View
+			- Create a text representation of the game board @in-progress
+			- 
 		
 
 
