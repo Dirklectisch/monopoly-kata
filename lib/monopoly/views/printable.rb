@@ -6,7 +6,7 @@ module Monopoly
     module Printable
                           
       def print_properties
-        return nil
+        return self.instance_variables
       end
       
     end
