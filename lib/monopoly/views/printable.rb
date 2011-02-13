@@ -5,6 +5,9 @@ module Monopoly
     
     module Printable
                           
+      def print_properties
+        return nil
+      end
       
     end
     

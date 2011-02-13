@@ -14,7 +14,19 @@ task :todo do
   sh "open #{file}"
 end
 
-Rake::TestTask.new(:test) do |t|
+task :test do
+    test_files = ['views/tc_printable.rb']
+    test_files.each do |file|
+      run_test file
+    end
+end
+
+def run_test file
+  path = ENV['APP_ROOT'] + '/test/' + file
+  sh "bacon -I:lib #{path}"
+end
+
+Rake::TestTask.new(:test_model) do |t|
    t.libs << 'test'
    t.loader = :rake
    t.verbose = false
@@ -25,11 +37,3 @@ Rake::TestTask.new(:test) do |t|
                    'test/riot/tc_player.rb',
                    'test/riot/tc_dice.rb']
 end
-
-Rake::TestTask.new(:test_all) do |t|
-   t.libs << 'test'
-   t.pattern = 'test/tc_*.rb'
-   t.warning = true
-end
- 
- 
