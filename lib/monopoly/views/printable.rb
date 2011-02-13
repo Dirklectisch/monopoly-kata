@@ -6,7 +6,7 @@ module Monopoly
     module Printable
                           
       def print_properties
-        return self.instance_variables
+        self.instance_variables.map { |var| var[1..-1].to_sym }        
       end
       
     end

@@ -8,8 +8,8 @@ describe "A printable instance" do
     class ClassA
       include Printable
       def initialize
-        @varA = 'valA'
-        @varB = 'valB' 
+        @varAA = 'valAA'
+        @varAB = 'valAB' 
       end
     end
     
@@ -19,7 +19,7 @@ describe "A printable instance" do
   
   it "Must print the names of it's variables" do
     
-    property_names = [:varA, :varB]    
+    property_names = [:varAA, :varAB]    
     (property_names & @a_object.print_properties).should.equal property_names
       
   end
