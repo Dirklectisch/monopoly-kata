@@ -5,11 +5,14 @@ module Monopoly
     
     module Printable
       
-      def print_properties
+      def print_properties object = self
         properties = {}
-        self.instance_variables.each do |name|
-          properties[name[1..-1].to_sym] = self.instance_variable_get(name)
+        object.instance_variables.each do |name|
+          value = object.instance_variable_get(name)
+          value = print_properties(value) if !value.instance_variables.empty?
+          properties[name[1..-1].to_sym] = value
         end
+        properties
       end
       
     end
