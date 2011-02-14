@@ -4,9 +4,13 @@ module Monopoly
   module Views
     
     module Printable
-                          
+      
       def print_properties
-        self.instance_variables.map { |var| var[1..-1].to_sym }        
+        properties = {}
+        self.instance_variables.each do |name|
+          properties[name[1..-1].to_sym] = self.instance_variable_get(name)
+        end
+        properties
       end
       
     end
