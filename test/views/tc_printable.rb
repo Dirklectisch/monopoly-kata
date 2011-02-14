@@ -8,7 +8,7 @@ describe "A printable object" do
       include Printable
       def initialize
         @varA = 'valA'
-        @varB = 'valB' 
+        @varB = 12 
       end
     end
     
@@ -17,9 +17,11 @@ describe "A printable object" do
   
   it "prints the names and values of it's variables" do
     property_values = {varA: 'valA',
-                       varB: 'valB'}
+                       varB: 12}
                        
-    @a_object.print_properties.should.equal property_values    
+    @a_object.print_properties.should.equal property_values
   end
+  
+  
 end
 
