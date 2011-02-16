@@ -6,20 +6,19 @@ module Monopoly
     
     class Board
       # Public constructor
-      def Board.create
-        Board.new Board.default_positions
+      def Board.create preset_file = 'positions_uk.yml'
+        Board.new Board.load_positions(preset_file)
       end # Creates a new default UK board
 
       def initialize positions
         @positions = positions
-        @players = {}
       end # Creates a new board
 
       # Private class
       private
 
-      def Board.default_positions
-        Position.batch_create Presets.load('positions_uk.yml');
+      def Board.load_positions preset_file
+        Position.batch_create Presets.load(preset_file)
       end # Loads a preset of default position
 
       public # instance
