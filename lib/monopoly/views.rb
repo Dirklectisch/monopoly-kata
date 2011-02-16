@@ -1,5 +1,5 @@
 require 'monopoly/views/printable'
-require 'monopoly/views/template-board'
+require 'monopoly/views/templateBoard'
 
 module Monopoly
   module Views
