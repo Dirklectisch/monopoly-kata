@@ -1,4 +1,4 @@
-require 'rake/testtask'
+require 'rake'
 
 ENV['APP_ROOT'] = File.dirname(__FILE__)
 ENV['LIBDIR'] = ENV['APP_ROOT'].to_s + '/lib'
@@ -18,23 +18,16 @@ task :test do
     test_files = ['views/tc_printable.rb',
                   'views/tc_templateBoard.rb']
     test_files.each do |file|
-      run_test file
+      run_test file    
     end
 end
 
 def run_test file
   path = ENV['APP_ROOT'] + '/test/' + file
-  sh "bacon -I:lib #{path}"
-end
-
-Rake::TestTask.new(:test_model) do |t|
-   t.libs << 'test'
-   t.loader = :rake
-   t.verbose = false
-   t.test_files = ['test/riot/tc_position.rb',
-                   'test/riot/tc_presets.rb', 
-                   'test/riot/tc_board.rb',
-                   'test/riot/tc_game.rb',
-                   'test/riot/tc_player.rb',
-                   'test/riot/tc_dice.rb']
+  begin
+    sh "bacon -I:lib #{path}"
+  rescue => e
+    puts e.message
+    # Hide e.backtrace
+  end
 end
