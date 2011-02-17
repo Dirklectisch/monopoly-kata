@@ -58,43 +58,13 @@ describe "A printable object" do
     a_object = ClassA.new('valA', enum)
     
     property_values = {varA: 'valA',
-                       varB: [{varA: 'enAvalA',
+                       varB: [{index: 1,
+                               varA: 'enAvalA',
                                varB: 'enAvalB'},
-                              {varA: 'enBvalA',
+                              {index: 2,
+                               varA: 'enBvalA',
                                varB: 'enBvalB'}]}
                                
-    a_object.print_properties.should.equal property_values
-    
-  end
-  
-  it "optionally displays indexes of arrays as properties" do
-    enum = []
-    enum << ClassA.new('enAvalA', 'enAvalB')
-    enum << ClassA.new('enBvalA', 'enBvalB') 
-    a_object = ClassA.new('valA', enum)
-    
-    property_values = {varA: 'valA',
-                       varB: [{varA: 'enAvalA',
-                               varB: 'enAvalB',
-                               index: 1},
-                              {varA: 'enBvalA',
-                               varB: 'enBvalB',
-                               index: 0}]}
-                               
-     
-    a_object.print_properties.should.equal property_values
-                               
-  end
-  
-  it "sets new properties on the object which it extends" do
-    
-    a_object = ClassA.new 'valA', 12
-    a_object.add_property :@varC, 'valC'
-    
-    property_values = {varA: 'valA',
-                       varB: '12',
-                       varC: 'valC' }
-                       
     a_object.print_properties.should.equal property_values
     
   end

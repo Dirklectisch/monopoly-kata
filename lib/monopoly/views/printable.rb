@@ -5,40 +5,42 @@ module Monopoly
     
     module Printable
       
-      def print_properties depth = 2, object = self
-              
-        case  
-        when depth == 0
+      def print_properties depth = 2, object = self, key = {}
+                        
+        unless depth == 0
+
+          return case
+          when !object.instance_variables.empty? # composite object
+            print_props_composite(depth, object, key)
+          when object.kind_of?(Enumerable) # collection object
+            print_props_collection(depth, object)  
+          else # Maximum depth reached
+            object.to_s
+          end
+          
+        else # Maximum depth reached
           return object.to_s
-        when Printable.is_composite?(object) #!object.instance_variables.empty?
-          return print_props_composite(depth, object)
-        when object.kind_of?(Enumerable)
-          return add_keys(object.map {|obj| print_properties(depth, obj)})
-        when !Printable.is_composite?(object) #object.instance_variables.empty?
-          return object.to_s
-        else
-          raise ArgumentError, "Object is not printable"
         end
         
       end
       
-      def print_props_composite depth, object
-        properties = {}  
+      def print_props_composite depth, object, key = {}
+        properties = key
         object.instance_variables.each do |name|
           prop_value = print_properties(depth - 1, object.instance_variable_get(name))
           prop_name = name[1..-1].to_sym
           properties[prop_name] = prop_value
         end
         properties
-      end
+      end # Expands a composite object
       
-      def add_keys enumerable
-        enumerable.each_index do |idx|
-          enumerable.at(idx)[:index] = idx + 1
+      def print_props_collection depth, enumerable
+        enumerable.each_with_index.collect do |object, idx|
+          print_properties(depth, object, {index: idx + 1})
         end
-        enumerable
-      end
-          
+      end # TODO: keys should be optional
+      
+              
       def self.is_composite? object = self
         !object.instance_variables.empty?
       end
