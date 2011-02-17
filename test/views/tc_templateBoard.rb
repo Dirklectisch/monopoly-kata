@@ -5,30 +5,40 @@ require 'mustache'
 
 module Monopoly
   
-  describe "A board template generator" do
+  describe "An ObjectView instance injected with a Board" do
     
     before do
       @a_board = Models::Board.create 'positions_test.yml'
-            
+      @board_view = Views::ObjectView.new @a_board
     end
 
+    it "renders a context from the injected board " do
+      property_values = {positions: [{index: 1,
+                                    name: 'Go'},
+                                    {index: 2,
+                                    name: 'Old Kent Road'},
+                                    {index: 3,
+                                    name: 'Community Chest'},
+                                    {index: 4,
+                                    name: 'Whitechapel Road'} 
+                                    ]}
+                                    
+      @board_view.render_context.should.equal property_values
+                                 
+    end
  
     it "renders board position names" do             
-      a_board_template = Views::TemplateBoard.new @a_board
-      a_board_template.template = "{{#positions}} \n{{name}} \n{{/positions}}" 
+      @board_view.template = "{{#positions}} \n{{name}} \n{{/positions}}" 
       result_doc = "Go \nOld Kent Road \nCommunity Chest \nWhitechapel Road \n"
   
-      a_board_template.render.should.equal result_doc
-     
+      @board_view.render.should.equal result_doc
     end
   
     it "renders board position numbers" do    
-      board_template = Views::TemplateBoard.new @a_board
-      board_template.template = "{{#positions}}{{index}}. {{name}} \n{{/positions}}"
-      board_template.add_index_positions
+      @board_view.template = "{{#positions}}{{index}}. {{name}} \n{{/positions}}"
       result_doc = "1. Go \n2. Old Kent Road \n3. Community Chest \n4. Whitechapel Road \n"        
       
-      board_template.render.should.equal result_doc
+      @board_view.render.should.equal result_doc
     end
     
     #it "renders players positions" do    
