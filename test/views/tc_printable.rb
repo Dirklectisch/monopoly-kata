@@ -67,5 +67,18 @@ describe "A printable object" do
     
   end
   
+  it "sets new properties on the object which it extends" do
+    
+    a_object = ClassA.new 'valA', 12
+    a_object.add_property :@varC, 'valC'
+    
+    property_values = {varA: 'valA',
+                       varB: '12',
+                       varC: 'valC' }
+                       
+    a_object.print_properties.should.equal property_values
+    
+  end
+  
 end
 

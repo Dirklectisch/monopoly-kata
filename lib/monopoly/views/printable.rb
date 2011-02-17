@@ -36,6 +36,11 @@ module Monopoly
         !object.instance_variables.empty?
       end
       
+      def add_property name, object #TODO auto add/remove @ in name
+        name.to_sym
+        self.instance_variable_set name, object
+      end
+      
     end
     
   end # views
