@@ -1,6 +1,6 @@
 require 'monopoly/models/board'
 require 'monopoly/views/templateBoard'
-require 'monopoly/models/player'
+require 'monopoly/models/game'
 require 'mustache'
 
 module Monopoly
@@ -41,19 +41,16 @@ module Monopoly
       @board_view.render.should.equal result_doc
     end
     
-    #it "renders players positions" do    
-    #  players = []
-    #  players << Models::Player.new("player one")
-    #  players << Models::Player.new("player_two")
-    #  players.each { |player| @a_board.place player }
-    #  
-    #  players_template = Views::TemplateBoard.new players
-    #  
-    #  players_template.template = "{{#players}}Position {{position}}. {{player}} \n{{/players}}"
-    #  result_doc = "1. Go \n2. Old Kent Road \n3. Community Chest \n4. Whitechapel Road \n"
-    #  
-    #  players_template.render.should.equal result_doc
-    #  
-    #end
+    it "renders players positions" do    
+      game = Models::Game.create "Martin", "Bob";
+      game.players.each { |player| game.board.place player }
+      game_view = Views::ObjectView.new game
+      
+      game_view.template = "{{#players}}{{position}}. {{name}} \n{{/players}}"
+      
+      game_view.render.should.include? "Bob" && "Martin" #lousy assertion due to random order
+      puts game_view.render  
+    end
+    
   end
 end

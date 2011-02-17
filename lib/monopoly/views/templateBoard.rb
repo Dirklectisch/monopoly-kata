@@ -4,8 +4,7 @@ require 'monopoly/views/printable.rb'
 module Monopoly
   module Views
       
-    class ObjectView < Mustache
-          
+    class ObjectView < Mustache       
      attr_reader :base, :template
        
      def initialize base_object
@@ -19,9 +18,8 @@ module Monopoly
      
      def render data = template
        super template, render_context
-     end
-    
-    end # ObjectView
+     end  
+    end
     
   end # views
 end # Monopoly
