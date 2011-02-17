@@ -20,17 +20,10 @@ Monopoly Kata:
 	Work Breakdown Structure:
 		- FT: Move around the board
 			- Create a text representation of the game board @in-progress
-				- Printable module 
-					- Test: Should print an instance it's properties @done
-					- Test: Should print the properties of collections  @done
-					- Test: Should print the properties of referenced objects @done
-				- Board model
-					- Test: Load position presets other than default preset
-				- Board overview template
-					- Test: Fixture with just a few positions
-					- Test: Render position blocks
-						- Names
-						- Numbers
+				- Display players on the board
+				- Actor roles dice
+				- Game moves pawn
+				- View the board
 		
 
 
