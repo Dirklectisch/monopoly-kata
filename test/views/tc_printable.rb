@@ -67,6 +67,25 @@ describe "A printable object" do
     
   end
   
+  it "optionally displays indexes of arrays as properties" do
+    enum = []
+    enum << ClassA.new('enAvalA', 'enAvalB')
+    enum << ClassA.new('enBvalA', 'enBvalB') 
+    a_object = ClassA.new('valA', enum)
+    
+    property_values = {varA: 'valA',
+                       varB: [{varA: 'enAvalA',
+                               varB: 'enAvalB',
+                               index: 1},
+                              {varA: 'enBvalA',
+                               varB: 'enBvalB',
+                               index: 0}]}
+                               
+     
+    a_object.print_properties.should.equal property_values
+                               
+  end
+  
   it "sets new properties on the object which it extends" do
     
     a_object = ClassA.new 'valA', 12

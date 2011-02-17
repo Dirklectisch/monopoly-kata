@@ -7,13 +7,13 @@ module Monopoly
       
       def print_properties depth = 2, object = self
               
-        case
+        case  
         when depth == 0
           return object.to_s
         when Printable.is_composite?(object) #!object.instance_variables.empty?
           return print_props_composite(depth, object)
         when object.kind_of?(Enumerable)
-          object.map { |obj| print_properties(depth, obj) }
+          return add_keys(object.map {|obj| print_properties(depth, obj)})
         when !Printable.is_composite?(object) #object.instance_variables.empty?
           return object.to_s
         else
@@ -30,6 +30,13 @@ module Monopoly
           properties[prop_name] = prop_value
         end
         properties
+      end
+      
+      def add_keys enumerable
+        enumerable.each_index do |idx|
+          enumerable.at(idx)[:index] = idx + 1
+        end
+        enumerable
       end
           
       def self.is_composite? object = self
