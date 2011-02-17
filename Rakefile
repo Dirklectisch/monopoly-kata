@@ -22,6 +22,14 @@ task :test do
     end
 end
 
+task :test_riot do
+  test_files = ['riot/tc_position.rb',
+                'riot/tc_board.rb']
+  test_files.each do |file|
+    run_test_riot file    
+  end
+end
+
 def run_test file
   path = ENV['APP_ROOT'] + '/test/' + file
   begin
@@ -30,4 +38,9 @@ def run_test file
     puts e.message
     # Hide e.backtrace
   end
+end
+
+def run_test_riot file
+  path = ENV['APP_ROOT'] + '/test/' + file
+  sh "ruby -I:lib:test #{path}"
 end
