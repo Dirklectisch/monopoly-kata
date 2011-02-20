@@ -49,7 +49,21 @@ module Monopoly
       game_view.template = "{{#players}}{{position}}. {{name}} \n{{/players}}"
       
       game_view.render.should.include? "Bob" && "Martin" #lousy assertion due to random order
-      puts game_view.render  
+      
+    end
+    
+    it "renders a players position number on the game board" do
+      game = Models::Game.create "Martin", "Bob";
+      game.board.extend Views::Printable
+      game.board.statify_indexes
+      game.players.each { |player| game.board.place player }
+      
+      game_view = Views::ObjectView.new game
+      game_view.template = "{{#players}}{{#position}}{{index}}: {{name}}.{{/position}} {{name}} \n{{/players}}"
+      
+      players_render = Mustache.render game_view.template, game_view.render_context(3)
+      players_render.should.include? "1: Go. Bob" && "1: Go. Martin"
+       
     end
     
   end

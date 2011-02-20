@@ -12,8 +12,8 @@ module Monopoly
        @base.extend Views::Printable
      end
      
-     def render_context
-       base.print_properties
+     def render_context depth = 2
+       base.print_properties depth
      end
      
      def render data = template
