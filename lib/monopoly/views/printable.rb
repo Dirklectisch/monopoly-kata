@@ -40,12 +40,19 @@ module Monopoly
         end
       end # TODO: keys should be optional
       
-              
-      def self.is_composite? object = self
-        !object.instance_variables.empty?
-      end      
-            
-    end
-    
+      def statify_indexes
+        
+        self.instance_variables.each do |name|
+          object = self.instance_variable_get(name)
+          if object.kind_of?(Enumerable) and object.frozen? == true          
+            object.each_with_index do |element, index|
+              element.instance_variable_set(:@index, index + 1)
+            end 
+          end 
+        end
+        
+      end
+      
+    end # Printable
   end # views
 end # Monopoly

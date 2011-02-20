@@ -1,4 +1,4 @@
-require 'monopoly/views'
+require 'monopoly'
 
 include Monopoly::Views
 
@@ -66,6 +66,16 @@ describe "A printable object" do
                                varB: 'enBvalB'}]}
                                
     a_object.print_properties.should.equal property_values
+    
+  end
+  
+  it "Adds an index as an attribute to objects in a frozen array" do
+    another_board = Monopoly::Models::Board.create
+    another_board.positions.freeze
+    another_board.extend Monopoly::Views::Printable
+    another_board.statify_indexes
+    
+    another_board.positions[3].instance_variable_get(:@index).should.equal 4
     
   end
   
