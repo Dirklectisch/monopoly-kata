@@ -1,4 +1,5 @@
-require 'monopoly'
+require 'monopoly/views/printable'
+require 'monopoly/models/board'
 
 include Monopoly::Views
 

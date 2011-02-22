@@ -1,5 +1,5 @@
 require 'monopoly/models/board'
-require 'monopoly/views/templateBoard'
+require 'monopoly/views/objectView'
 require 'monopoly/models/game'
 require 'mustache'
 
