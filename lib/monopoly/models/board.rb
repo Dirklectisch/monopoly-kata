@@ -11,8 +11,7 @@ module Monopoly
       end # Creates a new default UK board
 
       def initialize positions
-        @positions = positions
-        @positions.freeze
+        @positions = positions.freeze
       end # Creates a new board
 
       # Private class

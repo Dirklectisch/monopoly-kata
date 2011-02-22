@@ -23,7 +23,7 @@ module Monopoly
                                     name: 'Whitechapel Road'} 
                                     ]}
                                     
-      @board_view.render_context.should.equal property_values
+      @board_view.render_data.should.equal property_values
                                  
     end
  
@@ -60,9 +60,8 @@ module Monopoly
       
       game_view = Views::ObjectView.new game
       game_view.template = "{{#players}}{{#position}}{{index}}: {{name}}.{{/position}} {{name}} \n{{/players}}"
-      
-      players_render = Mustache.render game_view.template, game_view.render_context(3)
-      players_render.should.include? "1: Go. Bob" && "1: Go. Martin"
+      game_view.render_data 3
+      game_view.render.should.include? "1: Go. Bob" && "1: Go. Martin"
        
     end
     
