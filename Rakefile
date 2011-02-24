@@ -16,7 +16,7 @@ end
 
 task :test do
     test_files = ['views/tc_printable.rb',
-                  'views/tc_templateBoard.rb']
+                  'views/tc_objectView.rb']
     test_files.each do |file|
       run_test file    
     end
