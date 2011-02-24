@@ -19,11 +19,7 @@ Monopoly Kata:
 
 	Work Breakdown Structure:
 		- FT: Move around the board
-			- Create a text representation of the game board @in-progress
-				- Display players on the board
-				- Actor roles dice
-				- Game moves pawn
-				- View the board
+
 		
 
 
